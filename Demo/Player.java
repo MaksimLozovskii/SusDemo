@@ -6,43 +6,43 @@ public class Player {
 	private static int playerCounter = 0;
 	private int playerID;
 	
-	private String name;
-	private double score;
-	private double currencyBalance;
-	private double resourceBalance;
+	private String playerName;
+	private double playerScore;
+	private double playerCurrencyBalance;
+	private double playerResourceBalance;
 	
 
 	private double playerIncome;
 	private double playerOutgoing; 
-	private int playerSquarePosition;
+	private int playerPosition;
 	
 	private String playerColourHEX;
 	private String playerColour;
 	
 	private ArrayList<Square> playerOwnedSquares = new ArrayList<Square>();
 	
-	
-	public Player(String name) {
-		this.score = 0;
-		this.currencyBalance = 0;
-		this.resourceBalance = 0;
+	public Player(String name, String colour) {
+		this.playerColour = colour;
+		this.playerScore = 0;
+		this.playerCurrencyBalance = 0;
+		this.playerResourceBalance = 0;
 		this.playerIncome = 0;
 		this.playerOutgoing = 0;
 		
-		this.playerSquarePosition = 0; // i.e. at the start
+		this.playerPosition = 0; // i.e. at the start
 		
 		playerCounter++;
 		this.playerID = playerCounter;
 		this.setPlayerName(name);
 	}
 	public double getPlayerCurrencyBalance() {
-		return this.currencyBalance;
+		return this.playerCurrencyBalance;
 	}
 	public double getPlayerResourceBalance() {
-		return this.resourceBalance;
+		return this.playerResourceBalance;
 	}
 	public double getPlayerCurrentScore() {
-		return this.score;
+		return this.playerScore;
 	}
 	
 	public boolean changePlayerScore(double amount) {
@@ -50,22 +50,22 @@ public class Player {
 	}
 	
 	public String getPlayerName() {
-		return this.name;
+		return this.playerName;
 	}
 	public int getPlayerID() {
 		return this.playerID;
 	}
 	public void setPlayerCurrencyBalance(double newCurrBalance) {
-		this.currencyBalance = newCurrBalance;
+		this.playerCurrencyBalance = newCurrBalance;
 	}
 	public void setPlayerResourceBalance(double newResBalance) {
-		this.resourceBalance = newResBalance;
+		this.playerResourceBalance = newResBalance;
 	}
 	public void setPlayerScore(double newScore) {
-		this.score = newScore;
+		this.playerScore = newScore;
 	}
 	public void setPlayerName(String newName) {
-		this.name = newName;
+		this.playerName = newName;
 	}
 	
 	public double getPlayerIncome() {
@@ -84,12 +84,12 @@ public class Player {
 		return true;
 	}
 	
-	public int getPlayerSquarePosition() {
-		return this.playerSquarePosition;
+	public int getPlayerPosition() {
+		return this.playerPosition;
 	}
 	
-	public void setPlayerSquarePosition(int squareID) {
-		this.playerSquarePosition = squareID;
+	public void setPlayerPosition(int squareID) {
+		this.playerPosition = squareID;
 	}
 	
 	public String getPlayerColour() {
@@ -110,5 +110,26 @@ public class Player {
 		playerOwnedSquares.add(square);
 		
 		return true;
+	}
+	
+	public String toString() {
+		String playerInfo = "";
+		
+		playerInfo += ""
+				+ "*****************************\r\n"
+				+ "ID: " + this.playerID + "\r\n"
+				+ "Name: " + this.playerName + "\r\n"
+				+ "Score: " + this.playerScore + "\r\n"
+				+ "Currency Balance: " + this.playerCurrencyBalance + "\r\n"
+				+ "Resource Balance: " + this.playerResourceBalance +	"\r\n"
+				+ "Income: " + this.playerIncome + "\r\n"
+				+ "Outgoing: " + this.playerOutgoing + "\r\n"
+				+ "Current Position: " + this.playerPosition + "\r\n"
+				+ "Colour: " + this.playerColour + "\r\n"
+				+ "Owned Squares: " + "THERE WILL BE LIST HERE" + "\r\n"
+				+ "*****************************\r\n";
+		
+		return playerInfo;
+		
 	}
 }

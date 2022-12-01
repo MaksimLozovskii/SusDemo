@@ -2,56 +2,56 @@ package Demo;
 
 public class Task {
 	
-	private String name;
-	private double reward;
-	private double completionCost;
-	private boolean isStarted;
-	private boolean isComplete;
-	private int untilComplete;
+	private final String taskName;
+	private final double taskReward;
+	private final double taskCompletionCost;
+	private boolean taskIsStarted;
+	private boolean taskIsComplete;
+	private int weeksUntilComplete;
 	
 	
 	Task(String name, int reward, double completionCost, int untilComplete){
-		this.name = name;
-		this.reward = reward;
-		this.completionCost = completionCost;
-		this.untilComplete = untilComplete;
+		this.taskName = name;
+		this.taskReward = reward;
+		this.taskCompletionCost = completionCost;
+		this.weeksUntilComplete = untilComplete;
 		
-		this.isStarted = false;
-		this.isComplete = false;
+		this.taskIsStarted = false;
+		this.taskIsComplete = false;
 	}
 	
 	int getWeeksUntilComplete() {
-		return this.untilComplete;
+		return this.weeksUntilComplete;
 	}
 	
 	boolean getIsStarted() {
-		return this.isStarted;
+		return this.taskIsStarted;
 	}
 	
 	boolean getIsComplete() {
-		return this.isComplete;
+		return this.taskIsComplete;
 	}
 	
 	String getTaskName() {
-		return this.name;
+		return this.taskName;
 	}
 	
 	double getReward() {
-		return this.reward;
+		return this.taskReward;
 	}
 	
 	double completionCost() {
-		return this.completionCost;
+		return this.taskCompletionCost;
 	}
 	
 	boolean toggleStarted() {
-		this.isStarted = true;
+		this.taskIsStarted = true;
 		return true;
 	}
 	
 	boolean toggleComplete() {
-		this.isComplete = true;
-		this.isStarted = false;
+		this.taskIsComplete = true;
+		this.taskIsStarted = false;
 		return true;
 	}
 }
